@@ -144,6 +144,8 @@ oaistatic.com и oaiusercontent.com: доступ к статическим фа
 
 Из п.2 возьмем среднее значение файлов 17Мб, поэтому в сутки нужно еще 200Тб в облачном хранилище.
 
+
+
 Особенности каждой таблицы:  
 Users:
 * Шардирование: проводится основываясь на географическом признаке по полю country
@@ -171,3 +173,4 @@ Payments:
 [3]: https://increv.co/academy/chatgpt-stats/
 [4]: https://aimojo.io/ru/chatgpt-statistics-facts/
 [5]: https://itspeaker.ru/news/chislo-polzovateley-chatgpt-uzhe-bolshe-400-mln/
+[6]: https://www.kommersant.ru/doc/7517265
