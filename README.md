@@ -295,7 +295,7 @@ S3:
 | API Gateway / Nginx     |  HA-масштабирование, health-checks                   |
 | Модель (HuggingFace)    |  Локальный кэш, версионирование                      |
 | Kubernetes              |  Авто-перезапуск, горизонтальное масштабирование     |
-
+| MongoDB                 | ReplicaSet + шардирование|
 
 ***
 [1]: https://www.demandsage.com/chatgpt-statistics/
