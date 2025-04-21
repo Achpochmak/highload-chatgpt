@@ -297,6 +297,13 @@ S3:
 | Kubernetes              |  Авто-перезапуск, горизонтальное масштабирование     |
 | MongoDB                 | ReplicaSet + шардирование|
 
+# 10. Схема проекта
+![scheme](https://github.com/user-attachments/assets/62c18bef-f4be-4b3a-af23-f682b1d872c1)
+
+- Round-Robin + Health Checks (проверка доступности бекендов)
+- PostgreSQL: Чтение из реплик, запись в мастер, автоматический фейловер на реплику
+- Redis: Шардирование через Redis Cluster
+- Kafka: Запросы пользователей распределяются по партициям.
 ***
 [1]: https://www.demandsage.com/chatgpt-statistics/
 [2]: https://explodingtopics.com/blog/chatgpt-users
