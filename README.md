@@ -149,6 +149,13 @@ oaistatic.com и oaiusercontent.com: доступ к статическим фа
 |chatgpt.com, chat.com, ai.com | GeoDNS (перенаправляют на chat.openai.com) |  Быстрая переадресация на основной сервис |
 |oaistatic.com, oaiusercontent.com | Anycast через CDN | Статический контент,  максимально быстрая загрузка из ближайшей точки. Anycast позволяет всегда попасть на ближайший узел. |
 
+# 4. Локальная балансировка нагрузки
+![image](https://github.com/user-attachments/assets/e355c66e-2599-4071-ab5b-8526c845f5d8)
+
+Запрос от клиента проходит через интернет, где GeoDNS определяет ближайший дата-центр. Через IP-туннелирование (GRE/VXLAN) трафик поступает на L4-балансировщики (HAProxy/Keepalived) с VIP-адресами, которые обеспечивают базовую балансировку TCP-трафика и отказоустойчивость через VRRP. Далее запрос передаётся на кластер L7-балансировщиков (Nginx) с SSL-терминацией, WAF и rate-limiting, работающих в режиме Active-Active с BGP-роутингом. 
+
+От L7 трафик идёт в Ingress Controller (NGINX Ingress/Envoy) в Kubernetes-кластере, который определяет целевой pod на GPU-нодах по правилам маршрутизации. Pod с ML-моделью обрабатывает запрос. 
+
 # 5. Логическая схема БД
 ![image](https://github.com/user-attachments/assets/9d1db344-7a77-4cd9-8fec-d48e0ce4091b)
 ![image](https://github.com/user-attachments/assets/3c7543cb-97fe-4af1-a1b6-d3e08ab74fd3)
